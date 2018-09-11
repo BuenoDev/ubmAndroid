@@ -15,7 +15,11 @@ public class MainActivity extends AppCompatActivity {
 
 
     TextView text;
-    EditText edit;
+    TextView textJuros;
+    TextView textJurosRecebido;
+    TextView textValorTotal;
+    EditText editMeses;
+    EditText editValor;
     SeekBar seekBar;
 
     @Override
@@ -26,16 +30,32 @@ public class MainActivity extends AppCompatActivity {
         Double taxa = 0.06;
         final Double tempo = 6.0;
 
-
+        textJuros = findViewById(R.id.textViewTaxa);
         text = findViewById(R.id.textView);
-        edit = findViewById(R.id.editText);
-        seekBar = findViewById(R.id.seekBar);
+        editValor = findViewById(R.id.editValor);
+        seekBar = findViewById(R.id.seekBarTaxa);
+        editMeses = findViewById(R.id.editMeses);
+        textJurosRecebido = findViewById(R.id.textJurosRecebido);
+        textValorTotal = findViewById(R.id.textValorTotal);
 
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int  i, boolean b) {
-                Double  valor = Double.valueOf(String.valueOf(edit.getText()));
 
+                Double valorDepositado = Double.valueOf(String.valueOf(editValor.getText()));
+                Integer qntMeses = Integer.valueOf(String.valueOf(editMeses.getText()));
+                Double taxaDeJuros = i * 0.01;
+                Double result;
+                textJuros.setText(i + '%');
+
+                //result = qntMeses * (taxaDeJuros * valorDepositado);
+                result = valorDepositado;
+
+                for(Integer index = 0; index < qntMeses; index++) {
+                    result += qntMeses * (taxaDeJuros * result);
+                }
+                textValorTotal.setText("R$"+result+valorDepositado);
+                textJurosRecebido.setText("R$"+result);
             }
 
             @Override

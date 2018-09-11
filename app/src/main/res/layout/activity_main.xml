@@ -11,26 +11,25 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="9dp"
-        android:layout_marginStart="9dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="16dp"
         android:text="Valor Depositado"
-        app:layout_constraintStart_toStartOf="@+id/editValor"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/editValor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="9dp"
         android:ems="10"
         android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/textView"
+        app:layout_constraintStart_toEndOf="@+id/textView"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/textValorTotal"
         android:layout_width="111dp"
         android:layout_height="39dp"
         android:layout_marginBottom="77dp"
@@ -41,7 +40,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/textJurosRecebido"
         android:layout_width="111dp"
         android:layout_height="40dp"
         android:layout_marginBottom="29dp"
@@ -57,76 +56,77 @@
         android:id="@+id/textViewTotalPoupado"
         android:layout_width="111dp"
         android:layout_height="39dp"
-        android:layout_marginBottom="33dp"
-        android:layout_marginTop="31dp"
+        android:layout_marginBottom="15dp"
+        android:layout_marginTop="20dp"
         android:text="0"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView5"
+        app:layout_constraintBottom_toTopOf="@+id/textView5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewTaxa" />
+        app:layout_constraintTop_toTopOf="@+id/textView4" />
 
     <SeekBar
         android:id="@+id/seekBarTaxa"
         android:layout_width="224dp"
         android:layout_height="23dp"
-        android:layout_marginBottom="17dp"
+        android:layout_marginBottom="76dp"
         android:layout_marginLeft="15dp"
         android:layout_marginStart="15dp"
-        android:layout_marginTop="21dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView4"
+        android:layout_marginTop="75dp"
+        android:max="100"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewTotalPoupado"
         app:layout_constraintStart_toEndOf="@+id/textViewTaxa"
-        app:layout_constraintTop_toTopOf="@+id/textView8" />
+        app:layout_constraintTop_toTopOf="@+id/textView9" />
 
     <TextView
         android:id="@+id/textViewTaxa"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="103dp"
         android:layout_marginEnd="60dp"
         android:layout_marginLeft="60dp"
         android:layout_marginRight="60dp"
         android:layout_marginStart="60dp"
-        android:layout_marginTop="102dp"
+        android:layout_marginTop="44dp"
         android:text="0"
         android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView5"
         app:layout_constraintEnd_toStartOf="@+id/textViewTotalPoupado"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/editValor" />
+        app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="2dp"
         android:layout_marginEnd="30dp"
         android:layout_marginRight="30dp"
+        android:layout_marginTop="42dp"
         android:text="Total Poupado"
-        app:layout_constraintBottom_toTopOf="@+id/textViewTotalPoupado"
-        app:layout_constraintEnd_toEndOf="@+id/textViewTotalPoupado" />
+        app:layout_constraintEnd_toEndOf="@+id/textViewTotalPoupado"
+        app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
     <TextView
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="52dp"
+        android:layout_marginBottom="72dp"
         android:layout_marginEnd="25dp"
         android:layout_marginRight="25dp"
+        android:layout_marginTop="74dp"
         android:text="Juros Recebido"
-        app:layout_constraintBottom_toTopOf="@+id/textView7"
-        app:layout_constraintEnd_toEndOf="@+id/textView6" />
+        app:layout_constraintBottom_toTopOf="@+id/textValorTotal"
+        app:layout_constraintEnd_toEndOf="@+id/textJurosRecebido"
+        app:layout_constraintTop_toTopOf="@+id/textView4" />
 
     <TextView
         android:id="@+id/textView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="2dp"
+        android:layout_marginBottom="1dp"
         android:layout_marginEnd="53dp"
         android:layout_marginRight="53dp"
         android:text="Valor Total"
-        app:layout_constraintBottom_toTopOf="@+id/textView3"
-        app:layout_constraintEnd_toEndOf="@+id/textView3" />
+        app:layout_constraintBottom_toTopOf="@+id/textValorTotal"
+        app:layout_constraintEnd_toEndOf="@+id/textValorTotal" />
 
     <TextView
         android:id="@+id/textView8"
@@ -138,5 +138,30 @@
         app:layout_constraintBottom_toTopOf="@+id/textViewTaxa"
         app:layout_constraintStart_toStartOf="@+id/seekBarTaxa"
         app:layout_constraintTop_toTopOf="@+id/textViewTaxa" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="34dp"
+        android:text="Meses"
+        app:layout_constraintEnd_toStartOf="@+id/editMeses"
+        app:layout_constraintTop_toBottomOf="@+id/editValor" />
+
+    <EditText
+        android:id="@+id/editMeses"
+        android:layout_width="66dp"
+        android:layout_height="43dp"
+        android:layout_marginEnd="31dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="31dp"
+        android:layout_marginStart="32dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/textView5"
+        app:layout_constraintStart_toStartOf="@+id/textView8"
+        tools:layout_editor_absoluteY="99dp" />
 
 </android.support.constraint.ConstraintLayout>
