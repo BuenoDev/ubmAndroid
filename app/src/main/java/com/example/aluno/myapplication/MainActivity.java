@@ -13,7 +13,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btn;
+
     TextView text;
     EditText edit;
     SeekBar seekBar;
@@ -26,14 +26,14 @@ public class MainActivity extends AppCompatActivity {
         Double taxa = 0.06;
         final Double tempo = 6.0;
 
-        btn = findViewById(R.id.button);
+
         text = findViewById(R.id.textView);
         edit = findViewById(R.id.editText);
         seekBar = findViewById(R.id.seekBar);
 
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
-            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
+            public void onProgressChanged(SeekBar seekBar, int  i, boolean b) {
                 Double  valor = Double.valueOf(String.valueOf(edit.getText()));
 
             }
@@ -48,25 +48,5 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
-
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String str = edit.getText().toString();
-
-
-                ImageView img = new ImageView(getApplicationContext());
-                img.setImageResource(R.drawable.meme1);
-
-                Toast toast = new Toast(getApplicationContext());
-                toast.setView(img);
-
-
-
-            }
-        });
-
-
     }
 }
