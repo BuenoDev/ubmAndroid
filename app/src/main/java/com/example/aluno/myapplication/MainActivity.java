@@ -27,8 +27,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Double taxa = 0.06;
-        final Double tempo = 6.0;
 
         textJuros = findViewById(R.id.textViewTaxa);
         text = findViewById(R.id.textView);
@@ -42,20 +40,22 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onProgressChanged(SeekBar seekBar, int  i, boolean b) {
 
-                Double valorDepositado = Double.valueOf(String.valueOf(editValor.getText()));
-                Integer qntMeses = Integer.valueOf(String.valueOf(editMeses.getText()));
+                Double valorDepositado = Double.parseDouble(editValor.getText().toString());
+                Integer qntMeses = Integer.valueOf(editMeses.getText().toString());
                 Double taxaDeJuros = i * 0.01;
                 Double result;
-                textJuros.setText(i + '%');
+                textJuros.setText(String.valueOf(i) + '%');
 
-                //result = qntMeses * (taxaDeJuros * valorDepositado);
-                result = valorDepositado;
+                result = 0.0;
 
-                for(Integer index = 0; index < qntMeses; index++) {
-                    result += qntMeses * (taxaDeJuros * result);
-                }
-                textValorTotal.setText("R$"+result+valorDepositado);
-                textJurosRecebido.setText("R$"+result);
+                //for(Integer index = 0; index < qntMeses; index++) {
+                //    result += (valorDepositado + result)*taxaDeJuros;
+                //}
+
+                result = valorDepositado * Math.pow((1+taxaDeJuros),qntMeses);
+
+                textValorTotal.setText("R$"+String.format("%.2f",result));
+                textJurosRecebido.setText("R$"+String.format("%.2f",(result-valorDepositado)));
             }
 
             @Override
